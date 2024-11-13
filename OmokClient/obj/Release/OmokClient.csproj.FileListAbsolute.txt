@@ -1,0 +1,11 @@
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Release\OmokClient.csproj.AssemblyReference.cache
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Release\OmokClient.Form1.resources
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Release\OmokClient.Properties.Resources.resources
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Release\OmokClient.csproj.GenerateResource.cache
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Release\OmokClient.csproj.CoreCompileInputs.cache
+C:\Users\정후\source\repos\OmokClient\Binary\OmokClient.exe.config
+C:\Users\정후\source\repos\OmokClient\Binary\OmokClient.exe
+C:\Users\정후\source\repos\OmokClient\Binary\OmokClient.pdb
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Release\OmokClient.csproj.CopyComplete
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Release\OmokClient.exe
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Release\OmokClient.pdb

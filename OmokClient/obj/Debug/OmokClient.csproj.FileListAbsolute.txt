@@ -1,0 +1,16 @@
+C:\Users\정후\source\repos\OmokClient\OmokClient\bin\Debug\OmokClient.exe.config
+C:\Users\정후\source\repos\OmokClient\OmokClient\bin\Debug\OmokClient.exe
+C:\Users\정후\source\repos\OmokClient\OmokClient\bin\Debug\OmokClient.pdb
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Debug\OmokClient.csproj.AssemblyReference.cache
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Debug\OmokClient.Form1.resources
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Debug\OmokClient.Properties.Resources.resources
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Debug\OmokClient.csproj.GenerateResource.cache
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Debug\OmokClient.csproj.CoreCompileInputs.cache
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Debug\OmokClient.exe
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Debug\OmokClient.pdb
+C:\Users\정후\source\repos\OmokClient\OmokClient\bin\Debug\CppLib.dll
+C:\Users\정후\source\repos\OmokClient\OmokClient\bin\Debug\CppLib.pdb
+C:\Users\정후\source\repos\OmokClient\OmokClient\obj\Debug\OmokClient.csproj.CopyComplete
+C:\Users\정후\source\repos\OmokClient\Binary\OmokClient.exe.config
+C:\Users\정후\source\repos\OmokClient\Binary\OmokClient.exe
+C:\Users\정후\source\repos\OmokClient\Binary\OmokClient.pdb

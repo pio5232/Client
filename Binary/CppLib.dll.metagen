@@ -1,0 +1,71 @@
+ImageRuntimeVersion: v4.0.30319
+Assembly CppLib, Version=1.0.*, Culture=고정 언어(고정 국가): 
+	hash=SHA1, flags=PublicKey
+Assembly mscorlib, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Data, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
+	hash=None, flags=None
+Class C_Utility.RefSerializationBuffer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(C_Utility.CSerializationBuffer*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    GetBuffer(): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class C_Utility.EnumConverter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ErrorToRefError(ErrorCode): PrivateScope, Public, Static, HideBySig
+    RefErrorToError(RefErrorCode): PrivateScope, Public, Static, HideBySig
+Class C_Network.CallbackDelegate: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(RefSerializationBuffer): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(RefSerializationBuffer, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class C_Network.RefChattingClient: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, UInt16, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    RegisterHandler(RefPacketType, CallbackDelegate): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct C_Network.RefErrorCode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt16 value__ : Public, SpecialName, RTSpecialName
+    C_Network.RefErrorCode NONE = 0 : Public, Static, Literal, HasDefault
+    C_Network.RefErrorCode CREATE_ROOM_FAILED = 1 : Public, Static, Literal, HasDefault
+    C_Network.RefErrorCode CANNOT_FIND_ROOM = 2 : Public, Static, Literal, HasDefault
+    C_Network.RefErrorCode SESSION_USER_NOT_CONN = 3 : Public, Static, Literal, HasDefault
+    C_Network.RefErrorCode CANNOT_FIND_PACKET_FUNC = 4 : Public, Static, Literal, HasDefault
+    C_Network.RefErrorCode ALLOC_FAILED = 5 : Public, Static, Literal, HasDefault
+    C_Network.RefErrorCode DUPLICATED_MEMBER = 6 : Public, Static, Literal, HasDefault
+    C_Network.RefErrorCode NOT_FOUND = 7 : Public, Static, Literal, HasDefault
+Struct C_Network.RefPacketType: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.Enum
+  Fields:
+    UInt16 value__ : Public, SpecialName, RTSpecialName
+    C_Network.RefPacketType INVALID_PACKET = 65535 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType LOG_IN_REQUEST_PACKET = 0 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType LOG_IN_RESPONSE_PACKET = 1 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType ROOM_LIST_REQUEST_PACKET = 2 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType ROOM_LIST_RESPONSE_PACKET = 3 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType ENTER_ROOM_REQUEST_PACKET = 4 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType ENTER_ROOM_RESPONSE_PACKET = 5 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType ENTER_ROOM_NOTIFY_PACKET = 6 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType LEAVE_ROOM_REQUEST_PACKET = 7 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType LEAVE_ROOM_RESPONSE_PACKET = 8 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType LEAVE_ROOM_NOTIFY_PACKET = 9 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType CLIENT_LOG_OUT_PACKET = 10 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType CHAT_TO_ROOM_REQUEST_PACKET = 11 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType CHAT_TO_USER_REQUEST_PACKET = 12 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType CHAT_NOTIFY_PACKET = 13 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType CHAT_TO_ROOM_RESPONSE_PACKET = 14 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType CHAT_TO_USER_RESPONSE_PACKET = 15 : Public, Static, Literal, HasDefault
+    C_Network.RefPacketType ECHO_PACKET = 65534 : Public, Static, Literal, HasDefault
