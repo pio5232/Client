@@ -9,32 +9,61 @@ Assembly System, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e0
 	hash=None, flags=None
 Assembly System.Xml, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089: 
 	hash=None, flags=None
-Class C_Utility.RefSerializationBuffer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(C_Utility.CSerializationBuffer*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Interfaces:
-    System.IDisposable
-  Methods:
-    GetBuffer(): PrivateScope, Public, HideBySig
-    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
-Class C_Utility.EnumConverter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+Class C_Network.RefPacketHeader: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
     Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Methods:
-    ErrorToRefError(ErrorCode): PrivateScope, Public, Static, HideBySig
-    RefErrorToError(RefErrorCode): PrivateScope, Public, Static, HideBySig
-Class C_Network.CallbackDelegate: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
-  :System.MulticastDelegate
-    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
-  Methods:
-    Invoke(RefSerializationBuffer): PrivateScope, Public, Final, Virtual, VtableLayoutMask
-    BeginInvoke(RefSerializationBuffer, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
-    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
-Class C_Network.RefChattingClient: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
-    Void .ctor(System.String, UInt16, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
-  Interfaces:
-    System.IDisposable
-  Methods:
-    RegisterHandler(RefPacketType, CallbackDelegate): PrivateScope, Public, HideBySig
-    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class C_Network.RefChatUserRequestPacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt64 targetUserId : Public
+    Char[] payLoad : Public
+Class C_Network.RefChatRoomRequestPacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt16 roomNum : Public
+    Char[] payLoad : Public
+Class C_Network.RefChatUserResponsePacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefChatRoomResponsePacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefChatOtherUserNotifyPacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Fields:
+    UInt64 sendUserId : Public
+    Char[] payLoad : Public
+Class C_Network.RefLogInRequestPacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefLogInResponsePacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefLogOutRequestPacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefLogOutResponsePacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefEnterRoomRequestPacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefEnterRoomResponsePacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefLeaveRoomRequestPacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefLeaveRoomResponsePacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefRoomInfo: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+Class C_Network.RefRoomListRequestPacket: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+  :C_Network.RefPacketHeader
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
 Struct C_Network.RefErrorCode: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
   :System.Enum
   Fields:
@@ -69,3 +98,69 @@ Struct C_Network.RefPacketType: AutoLayout, AnsiClass, Class, Public, Sealed, Be
     C_Network.RefPacketType CHAT_TO_ROOM_RESPONSE_PACKET = 14 : Public, Static, Literal, HasDefault
     C_Network.RefPacketType CHAT_TO_USER_RESPONSE_PACKET = 15 : Public, Static, Literal, HasDefault
     C_Network.RefPacketType ECHO_PACKET = 65534 : Public, Static, Literal, HasDefault
+Class C_Utility.RefRecvSerializationBuffer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(C_Utility.CSerializationBuffer*): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    GetBuffer(): PrivateScope, Public, HideBySig
+    Detach(Int64): PrivateScope, Public, HideBySig
+    Detach(UInt64): PrivateScope, Public, HideBySig
+    Detach(Double* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(Single* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(Int32* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(UInt32* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(Int32* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(UInt32* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(Int16* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(UInt16* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(SByte* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Detach(Byte* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Struct C_Utility.SharedSendWrapper: AutoLayout, AnsiClass, Class, Public, SequentialLayout, Sealed, BeforeFieldInit
+  :System.ValueType
+Class C_Utility.RefSendSerializationBuffer: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    SetSharedBuffer(shared_ptr<C_Utility::CSerializationBuffer>* IsImplicitlyDereferenced): PrivateScope, Public, HideBySig
+    GetSharedBuffer(shared_ptr<C_Utility::CSerializationBuffer>*): PrivateScope, Public, HideBySig
+    GetWrapper(): PrivateScope, Public, HideBySig
+    Attach(Double): PrivateScope, Public, HideBySig
+    Attach(Single): PrivateScope, Public, HideBySig
+    Attach(UInt64): PrivateScope, Public, HideBySig
+    Attach(Int64): PrivateScope, Public, HideBySig
+    Attach(Int32 IsLong): PrivateScope, Public, HideBySig
+    Attach(UInt32 IsLong): PrivateScope, Public, HideBySig
+    Attach(Int32): PrivateScope, Public, HideBySig
+    Attach(UInt32): PrivateScope, Public, HideBySig
+    Attach(Int16): PrivateScope, Public, HideBySig
+    Attach(UInt16): PrivateScope, Public, HideBySig
+    Attach(SByte IsSignUnspecifiedByte): PrivateScope, Public, HideBySig
+    Attach(Byte): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
+Class C_Utility.EnumConverter: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Methods:
+    ErrorToRefError(ErrorCode): PrivateScope, Public, Static, HideBySig
+    RefErrorToError(RefErrorCode): PrivateScope, Public, Static, HideBySig
+Class C_Network.CallbackDelegate: AutoLayout, AnsiClass, Class, Public, Sealed, BeforeFieldInit
+  :System.MulticastDelegate
+    Void .ctor(System.Object, IntPtr): PrivateScope, Public, SpecialName, RTSpecialName
+  Methods:
+    Invoke(RefRecvSerializationBuffer): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    BeginInvoke(RefRecvSerializationBuffer, AsyncCallback, Object): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+    EndInvoke(IAsyncResult): PrivateScope, Public, Final, Virtual, VtableLayoutMask
+Class C_Network.RefChattingClient: AutoLayout, AnsiClass, Class, Public, BeforeFieldInit
+    Void .ctor(System.String, UInt16, UInt32): PrivateScope, Public, HideBySig, SpecialName, RTSpecialName
+  Interfaces:
+    System.IDisposable
+  Methods:
+    Begin(): PrivateScope, Public, HideBySig
+    End(): PrivateScope, Public, HideBySig
+    Send(RefSendSerializationBuffer): PrivateScope, Public, HideBySig
+    MakeBuffer(UInt32): PrivateScope, Public, HideBySig
+    RegisterHandler(RefPacketType, CallbackDelegate): PrivateScope, Public, HideBySig
+    Dispose(): PrivateScope, Public, Final, Virtual, HideBySig
